@@ -132,9 +132,13 @@ class MainFragment : BaseFragment() {
 
     inner class ClickProxy {
         // 当在首页点击 “菜单” 的时候，直接导航到 ---> 菜单的Fragment界面
-        fun openMenu() { sharedViewModel.openOrCloseDrawer.value = true } // 触发
+        fun openMenu() {
+            sharedViewModel.openOrCloseDrawer.value = true
+        } // 触发
 
         // 当在首页点击 “搜索图标” 的时候，直接导航到 ---> 搜索的Fragment界面
-        fun search() = nav().navigate(R.id.action_mainFragment_to_searchFragment)
+        fun search() {
+            sharedViewModel.openOrCloseDrawer.value = false
+        }
     }
 }

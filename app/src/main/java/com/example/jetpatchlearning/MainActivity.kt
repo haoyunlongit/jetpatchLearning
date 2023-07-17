@@ -18,10 +18,11 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         mainActivityViewModel = getActivityViewModelProvider(this).get(MainActivityViewModel::class.java)
 
-
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainBinding ?.lifecycleOwner = this
         mainBinding ?.vm = mainActivityViewModel
+
+        supportActionBar?.hide()
 
         // 眼睛 1 监听
         // 共享 （观察） 活动关闭的一些记录（播放条 缩小一条 与 扩大展开）

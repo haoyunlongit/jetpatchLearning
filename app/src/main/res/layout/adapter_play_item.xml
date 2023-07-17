@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:textSize="18sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 tools:text="title" />
 
             <TextView
@@ -54,7 +54,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="4dp"
                 android:textSize="14sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 tools:text="summary" />
 
         </LinearLayout>

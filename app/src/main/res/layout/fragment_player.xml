@@ -171,6 +171,7 @@
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 android:onClick="@{()->click.togglePlay()}"
+                app:materialIconColor="@android:color/black"
                 playpauseview:circleAlpha="0"
                 playpauseview:isCircleDraw="true" />
 

@@ -164,7 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="never"
-            android:background="@color/white"
+            android:background="@color/black"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <!-- 1.“最近播放区域” 其实就是 音乐列表 系列Item

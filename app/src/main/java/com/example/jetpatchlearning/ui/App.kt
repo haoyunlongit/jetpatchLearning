@@ -12,14 +12,14 @@ import com.example.mylibrary.utils.Utils
 /// ViewModelStoreOwner
 class App : Application(), ViewModelStoreOwner {
 
-    override val viewModelStore: ViewModelStore
-        get() = ViewModelStore()
+    private var mAppViewModelStore: ViewModelStore? = null
 
     private var mFactory: ViewModelProvider.Factory? = null
 
     override fun onCreate() {
         super.onCreate()
         Utils.init(this)
+        mAppViewModelStore = ViewModelStore()
 
         PlayerManager.instance.init(this)
     }
@@ -47,5 +47,7 @@ class App : Application(), ViewModelStoreOwner {
             )
     }
 
+    override val viewModelStore: ViewModelStore
+        get() = mAppViewModelStore !!
 
 }
