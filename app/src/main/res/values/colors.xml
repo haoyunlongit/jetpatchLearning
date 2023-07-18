@@ -20,4 +20,12 @@
     <color name="my_c1">#D4D6BD</color>
     <color name="my_c2">#EC0855</color>
     <color name="my_c3">#B4D9DD</color>
+
+    <!-- 根布局的背景 -->
+    <color name="root_bg_color">#EFEDED</color>
+
+    <color name="main_color">#24cfa2</color>
+
+    <!-- 头部颜色 -->
+    <color name="top_bg_color"> #323a45</color>
 </resources>

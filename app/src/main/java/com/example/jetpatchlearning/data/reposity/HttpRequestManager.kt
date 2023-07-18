@@ -1,14 +1,21 @@
 package com.example.jetpatchlearning.data.reposity
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.jetpatchlearning.R
 import com.example.jetpatchlearning.data.bean.DownloadFile
 import com.example.jetpatchlearning.data.bean.LibraryInfo
 import com.example.jetpatchlearning.data.bean.TestAlbum
+import com.example.jetpatchlearning.data.login_register.LoginRegisterResponse
+import com.example.jetpatchlearning.data.repository.api.WanAndroidApi
+import com.example.jetpatchlearning.data.repository.net.APIClient
+import com.example.jetpatchlearning.data.repository.net.APIResponse
 import com.example.mylibrary.utils.Utils
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import java.util.*
 
 class HttpRequestManager private constructor() : IRemoteRequest, ILoadRequest {
@@ -68,6 +75,44 @@ class HttpRequestManager private constructor() : IRemoteRequest, ILoadRequest {
             }
         }
         timer.schedule(task, 100)
+    }
+
+    override fun register(
+        context: Context,
+        username: String,
+        password: String,
+        repassword: String,
+        dataLiveData1: MutableLiveData<LoginRegisterResponse>,
+        dataLiveData2: MutableLiveData<String>
+    ) {
+       APIClient.instance.instanceRetrofit(WanAndroidApi::class.java)
+           .registerAction(username, password, repassword)
+           .subscribeOn(Schedulers.io())
+           .observeOn(AndroidSchedulers.mainThread())
+           .subscribe(object : APIResponse<LoginRegisterResponse>(context) {
+                override fun success(data: LoginRegisterResponse?) {
+                     dataLiveData1.value = data
+                }
+
+                override fun failure(errorMsg: String?) {
+                     dataLiveData2.value = errorMsg
+                }
+              })
+
+    }
+
+    override fun login(
+        context: Context,
+        username: String,
+        password: String,
+        dataLiveData1: MutableLiveData<LoginRegisterResponse>,
+        dataLiveData2: MutableLiveData<String>
+    ) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun loginCoroutine(username: String, password: String): LoginRegisterResponse {
+        TODO("Not yet implemented")
     }
 
 

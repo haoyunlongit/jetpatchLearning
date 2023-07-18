@@ -40,6 +40,11 @@ open class BaseActivity : AppCompatActivity() {
         return ViewModelProvider(activity, activity.defaultViewModelProviderFactory)
     }
 
+
+    open fun hideActionBar() {
+        supportActionBar?.hide()
+    }
+
     // 工具函数
     fun isDebug(): Boolean {
         return applicationContext.applicationInfo != null &&
