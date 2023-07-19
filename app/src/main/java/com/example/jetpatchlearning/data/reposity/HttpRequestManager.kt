@@ -111,9 +111,13 @@ class HttpRequestManager private constructor() : IRemoteRequest, ILoadRequest {
         TODO("Not yet implemented")
     }
 
-    override suspend fun loginCoroutine(username: String, password: String): LoginRegisterResponse {
-        TODO("Not yet implemented")
-    }
+    // 登录的标准-协程版本-的具体代码
+    override suspend fun loginCoroutine(
+        username: String,
+        password: String)
+            =
+        APIClient.instance.instanceRetrofit(WanAndroidApi::class.java)
+            .loginActionCoroutine(username, password).data
 
 
 }

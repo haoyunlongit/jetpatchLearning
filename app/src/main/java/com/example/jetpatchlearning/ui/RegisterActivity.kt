@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.jetpatchlearning.R
 import com.example.jetpatchlearning.bridge.state.RegisterModel
-import com.example.jetpatchlearning.bridge.state.RequestRegisterViewModel
+import com.example.jetpatchlearning.bridge.request.RequestRegisterViewModel
 import com.example.jetpatchlearning.data.login_register.LoginRegisterResponse
 import com.example.jetpatchlearning.databinding.RegisterViewBinding
 import com.example.jetpatchlearning.ui.base.BaseActivity

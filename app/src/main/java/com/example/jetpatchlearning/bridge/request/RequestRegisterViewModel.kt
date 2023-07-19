@@ -1,4 +1,4 @@
-package com.example.jetpatchlearning.bridge.state
+package com.example.jetpatchlearning.bridge.request
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
